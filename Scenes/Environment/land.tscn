@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck7w6v6m86tty"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_ec6bh"]
+map_width = 3
+map_depth = 3
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aia1g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1e23e"]
+albedo_color = Color(0.4627451, 0.5254902, 0.27058825, 1)
+
+[node name="Land" type="StaticBody3D"]
+
+[node name="LandCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_ec6bh")
+
+[node name="LandMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("PlaneMesh_aia1g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1e23e")

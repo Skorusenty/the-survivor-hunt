@@ -1,9 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dklrjmsna1vxf"]
+[gd_scene load_steps=7 format=3 uid="uid://dklrjmsna1vxf"]
 
 [ext_resource type="PackedScene" uid="uid://01dw3ve3er7y" path="res://Scenes/Entities/deer.tscn" id="1_aia1g"]
+[ext_resource type="PackedScene" uid="uid://cqw24i2tiwj1" path="res://Scenes/Entities/Player.tscn" id="2_utvql"]
+[ext_resource type="PackedScene" uid="uid://ck7w6v6m86tty" path="res://Scenes/Environment/land.tscn" id="3_dsig3"]
 
-[node name="Map" type="Node3D"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3wap"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_r18dd"]
+sky_material = SubResource("ProceduralSkyMaterial_h3wap")
+
+[sub_resource type="Environment" id="Environment_xcuxr"]
+background_mode = 2
+sky = SubResource("Sky_r18dd")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xcuxr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 259.4203, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
 
 [node name="Deer2" parent="." instance=ExtResource("1_aia1g")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Land" parent="." instance=ExtResource("3_dsig3")]
+
+[node name="Adventurer" parent="." instance=ExtResource("2_utvql")]
+transform = Transform3D(3.2, 0, 0, 0, 3.2, 0, 0, 0, 3.2, -1.5444338, 0.0039139, -6.669356)

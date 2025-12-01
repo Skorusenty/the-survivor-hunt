@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqw24i2tiwj1"]
+[gd_scene load_steps=5 format=3 uid="uid://cqw24i2tiwj1"]
 
 [ext_resource type="Script" uid="uid://22k44b1x0ax3" path="res://Scripts/Systems/Player_Manager.gd" id="2_agccv"]
 [ext_resource type="Script" uid="uid://bc3yywmvl3rjf" path="res://Scripts/Components/Player_Movement.gd" id="2_v402d"]
+[ext_resource type="Script" uid="uid://dupft0ptd7ydv" path="res://Scenes/Entities/camera_component.gd" id="3_agccv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v402d"]
 
-[node name="Node3D" type="CharacterBody3D" node_paths=PackedStringArray("collision", "movement_component")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("collision", "movement_component", "camera_component")]
 script = ExtResource("2_agccv")
 collision = NodePath("CollisionShape3D")
 movement_component = NodePath("MovementComponent")
+camera_component = NodePath("CameraComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9971423, 0)
@@ -23,7 +25,10 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="MovementComponent" type="Node3D" parent="."]
 script = ExtResource("2_v402d")
 
-[node name="CameraComponent" type="Node3D" parent="."]
+[node name="CameraComponent" type="Node3D" parent="." node_paths=PackedStringArray("yaw_owner", "pitch_owner")]
+script = ExtResource("3_agccv")
+yaw_owner = NodePath("..")
+pitch_owner = NodePath("../Head")
 
 [node name="EffectsComponent" type="Node3D" parent="."]
 

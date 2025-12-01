@@ -26,6 +26,7 @@ var jump_pressed: bool = false
 func _ready() -> void:
 	speed = walk_speed
 
+#Connecting inputs from Player
 func set_direction(value: Vector3):
 	direction = value
 
@@ -70,7 +71,6 @@ func process_movement():
 		velocity.x = move_toward(velocity.x, 0, acceleration * delta)
 		velocity.z = move_toward(velocity.z, 0, acceleration * delta)
 	
-
 
 func get_velocity():
 	return velocity

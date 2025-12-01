@@ -31,5 +31,5 @@ directional_shadow_max_distance = 1.0
 
 [node name="Land" parent="." instance=ExtResource("3_dsig3")]
 
-[node name="Adventurer" parent="." instance=ExtResource("2_utvql")]
-transform = Transform3D(3.2, 0, 0, 0, 3.2, 0, 0, 0, 3.2, -1.5444338, 0.0039139, -6.669356)
+[node name="Player" parent="." instance=ExtResource("2_utvql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1666718, 3.5365736, 0)

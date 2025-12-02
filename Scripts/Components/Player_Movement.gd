@@ -22,9 +22,11 @@ var ground_check: bool = false
 var is_crouching: bool = false
 var is_sprinting: bool = false
 var jump_pressed: bool = false
+var ballsinger: float
 
 func _ready() -> void:
 	speed = walk_speed
+	ballsinger = gravity
 
 #Connecting inputs from Player
 func set_direction(value: Vector3):

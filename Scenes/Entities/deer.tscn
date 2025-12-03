@@ -1,5 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://01dw3ve3er7y"]
+[gd_scene load_steps=5 format=3 uid="uid://01dw3ve3er7y"]
 
 [ext_resource type="PackedScene" uid="uid://bacc23vvorbkw" path="res://Assets/Raw/glTF/Deer.gltf" id="1_mpvq3"]
+[ext_resource type="Script" uid="uid://5v05jr64k235" path="res://Scripts/Components/Animal_Manager.gd" id="2_6y4uk"]
+[ext_resource type="Script" uid="uid://c3mv7ayue0ghj" path="res://Scripts/Components/ai_animal_component.gd" id="3_raf78"]
 
-[node name="Deer2" instance=ExtResource("1_mpvq3")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6y4uk"]
+radius = 2.1240234
+height = 4.248047
+
+[node name="Deer" instance=ExtResource("1_mpvq3")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("2_6y4uk")
+speed = 5.0
+
+[node name="Skeleton3D" parent="AnimalArmature" index="0"]
+bones/1/rotation = Quaternion(0.7869396, -6.344836e-07, -8.113766e-07, 0.61703)
+bones/3/rotation = Quaternion(0.06031786, -2.0027755e-05, -1.4883797e-06, 0.9981792)
+bones/4/rotation = Quaternion(0.22428764, 1.95236e-05, -5.539664e-06, 0.974523)
+bones/5/rotation = Quaternion(0.32501635, 1.4690081e-06, -1.0144097e-06, 0.9457084)
+bones/6/rotation = Quaternion(0.022649147, -8.7628145e-09, -3.004262e-08, 0.99974346)
+bones/7/rotation = Quaternion(0.04712724, -6.648784e-09, -7.001794e-08, 0.9988889)
+bones/8/rotation = Quaternion(-0.6819478, 1.4992904e-09, 1.0811151e-06, 0.73140085)
+bones/11/rotation = Quaternion(-0.028002966, 0.020936867, -0.014193598, 0.9992878)
+bones/12/rotation = Quaternion(0.006141998, 0.07460476, -0.10078928, 0.99208766)
+bones/15/rotation = Quaternion(-0.028002936, -0.02093685, 0.014193585, 0.9992878)
+bones/16/rotation = Quaternion(0.0061419313, -0.074604794, 0.100789264, 0.99208766)
+bones/18/rotation = Quaternion(0.7499857, 0.65770656, 0.04635914, 0.052863624)
+bones/19/rotation = Quaternion(2.7973073e-07, 0.9903817, 0.13836211, 2.1999003e-06)
+bones/20/rotation = Quaternion(0.46396938, 0.5290422, 0.53419596, -0.4684887)
+bones/21/rotation = Quaternion(0.7499859, -0.6577065, -0.046357956, 0.05286217)
+bones/22/rotation = Quaternion(-2.5893405e-07, 0.9903824, 0.1383574, -1.9637762e-06)
+bones/23/rotation = Quaternion(0.58903, 0.5223962, 0.4152164, -0.45578653)
+bones/24/rotation = Quaternion(0.7358968, 0.66175383, 0.09582531, 0.10656098)
+bones/25/rotation = Quaternion(0.6112004, -6.200118e-08, 4.0737018e-07, 0.791476)
+bones/26/rotation = Quaternion(-4.7093258e-07, 0.84798926, -0.5300134, 6.973761e-07)
+bones/27/rotation = Quaternion(0.58902913, -0.5223971, -0.41521755, -0.45578542)
+bones/28/rotation = Quaternion(0.7358969, -0.6617538, -0.09582533, 0.10656096)
+bones/29/rotation = Quaternion(0.61120033, 8.278968e-08, -4.191984e-07, 0.79147595)
+bones/30/rotation = Quaternion(4.557672e-07, 0.84798944, -0.5300132, -7.018003e-07)
+bones/31/rotation = Quaternion(0.96775424, -2.3589551e-07, -1.1115499e-06, -0.2518963)
+bones/32/rotation = Quaternion(-0.59352773, -1.2269263e-08, 9.7663055e-08, 0.80481356)
+bones/33/rotation = Quaternion(-0.4427186, -2.3689712e-08, 1.2741823e-07, 0.8966606)
+bones/39/rotation = Quaternion(4.3538013e-09, 0.9998002, 0.01998961, -7.548282e-08)
+bones/45/rotation = Quaternion(-1.9173488e-08, 0.9998002, 0.019989625, -3.1385372e-07)
+
+[node name="AIAnimalComponent" type="Node3D" parent="." index="2"]
+script = ExtResource("3_raf78")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 0, 1.87, 0)
+shape = SubResource("CapsuleShape3D_6y4uk")
+
+[node name="MoveInterval" type="Timer" parent="." index="4"]
+wait_time = 2.0
+autostart = true
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5"]
+debug_enabled = true
+
+[connection signal="timeout" from="MoveInterval" to="." method="_on_move_interval_timeout"]

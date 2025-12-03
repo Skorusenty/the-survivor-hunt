@@ -2,22 +2,22 @@
 
 [ext_resource type="Script" uid="uid://22k44b1x0ax3" path="res://Scripts/Systems/Player_Manager.gd" id="2_agccv"]
 [ext_resource type="Script" uid="uid://bc3yywmvl3rjf" path="res://Scripts/Components/Player_Movement.gd" id="2_v402d"]
-[ext_resource type="Script" uid="uid://dupft0ptd7ydv" path="res://Scenes/Entities/camera_component.gd" id="3_agccv"]
+[ext_resource type="Script" uid="uid://dupft0ptd7ydv" path="res://Scripts/Components/camera_component.gd" id="3_agccv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v402d"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("collision", "movement_component", "camera_component")]
+collision_layer = 2
 script = ExtResource("2_agccv")
 collision = NodePath("CollisionShape3D")
 movement_component = NodePath("MovementComponent")
 camera_component = NodePath("CameraComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9971423, 0)
 shape = SubResource("CapsuleShape3D_v402d")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6500001, 0.114393815)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

@@ -5,7 +5,7 @@ extends Node
 #Velocity
 var delta: float
 var velocity: Vector3 = Vector3.ZERO
-@export var base_acceleration: float = 10.0
+@export var base_acceleration: float = 50.0
 var acceleration: float
 #Inputs
 var direction: Vector3
@@ -22,11 +22,9 @@ var ground_check: bool = false
 var is_crouching: bool = false
 var is_sprinting: bool = false
 var jump_pressed: bool = false
-var ballsinger: float
 
 func _ready() -> void:
 	speed = walk_speed
-	ballsinger = gravity
 
 #Connecting inputs from Player
 func set_direction(value: Vector3):

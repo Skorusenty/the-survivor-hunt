@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dbvc3c8hvfa3o"
-path="res://.godot/imported/Stag.gltf-8ffae243d33908866cae6f346e729a19.scn"
+uid="uid://bsd0d4hrffvj4"
+path="res://.godot/imported/map.gltf-ca3aac6e8e5b15330db6506bfdbf35f8.scn"
 
 [deps]
 
-source_file="res://Assets/Raw/glTF/Stag.gltf"
-dest_files=["res://.godot/imported/Stag.gltf-8ffae243d33908866cae6f346e729a19.scn"]
+source_file="res://Assets/Raw/glTF/map.gltf"
+dest_files=["res://.godot/imported/map.gltf-ca3aac6e8e5b15330db6506bfdbf35f8.scn"]
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
@@ -28,7 +28,7 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=1

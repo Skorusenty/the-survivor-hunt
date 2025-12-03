@@ -13,8 +13,9 @@ var t_bob = 0.0
 #FOV VALUES
 const base_fov = 75.0
 const fov_change = 1.5
-var head
-var camera
+var pitch
+var yaw
+var camera_base_pos: Vector3
 func _input(event):
 	if event.is_action_pressed("Exit"):
 		get_tree().quit()
@@ -25,12 +26,15 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		camera_component.update_camera(event.relative)
 
+func _ready() -> void:
+	camera_base_pos = camera_component.pitch_owner.transform.origin
+
 func _physics_process(delta):
-	camera = camera_component.get_cam()
-	head = camera_component.get_head()
+	yaw = camera_component.get_yaw()
+	pitch = camera_component.get_pitch()
 	velocity = movement_component.get_velocity()
 	var input_vector = -Input.get_vector("Left", "Right", "Forward", "Backward")
-	var world_direction = (head.transform.basis * Vector3(input_vector.x, 0, input_vector.y)).normalized()
+	var world_direction = (yaw.transform.basis * Vector3(input_vector.x, 0, input_vector.y)).normalized()
 	movement_component.set_direction(world_direction)
 	movement_component.set_is_on_floor(is_on_floor())
 	movement_component.set_crouch(Input.is_action_pressed("Crouch"))
@@ -39,20 +43,20 @@ func _physics_process(delta):
 	camera_component.set_delta(delta)
 	movement_component.process_movement()
 	#BOB VALUES
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob)
+	#t_bob += delta * velocity.length() * float(is_on_floor())
+	#pitch.transform.origin = _headbob(t_bob)
 	#FOV CHANGE
 	#var velocity_clamped = clamp(velocity.length(), 0.5, sprint_move_speed * 2)
 	#var target_fov = base_fov + fov_change * velocity_clamped
 	#camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	move_and_slide()
 
-func _headbob(time) -> Vector3:
-	#HEAD MOVEMENT
-	var pos = Vector3.ZERO
-	pos.y = sin(time * bob_freq) * bob_amp
-	pos.x = cos(time * bob_freq / 2) * bob_amp
-	return pos
+#func _headbob(time) -> Vector3:
+	##HEAD MOVEMENT
+	#var pos = Vector3.ZERO
+	#pos.y = sin(time * bob_freq) * bob_amp
+	#pos.x = cos(time * bob_freq / 2) * bob_amp
+	#return pos
 
 #func crouch(state: bool):
 	#match state:

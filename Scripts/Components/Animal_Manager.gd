@@ -10,8 +10,8 @@ func _ready() -> void:
 
 func _on_move_interval_timeout() -> void:
 	random_position = Vector3.ZERO
-	random_position.x = randf_range(-100, 100)
-	random_position.z = randf_range(-100, 100)
+	random_position.x = randf_range(-25, 25)
+	random_position.z = randf_range(-25, 25)
 	navAgent.set_target_position(random_position)
 	move()
 	

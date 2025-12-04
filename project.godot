@@ -8,6 +8,10 @@
 
 config_version=5
 
+WindDirection=Vector3(1, 0, 0)
+GaleStrength=1.0
+OceanWavesGradient=1.0
+
 [application]
 
 config/name="The Survivor Hunt"
@@ -19,6 +23,11 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=2
+
+[global_group]
+
+Land=""
+Player=""
 
 [input]
 

@@ -5,11 +5,11 @@
 [ext_resource type="Script" uid="uid://c3mv7ayue0ghj" path="res://Scripts/Components/ai_animal_component.gd" id="3_raf78"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6y4uk"]
-radius = 2.1240234
-height = 4.248047
+radius = 1.5
+height = 3.0
 
 [node name="Deer" instance=ExtResource("1_mpvq3")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("2_6y4uk")
@@ -46,18 +46,23 @@ bones/33/rotation = Quaternion(-0.4427186, -2.3689712e-08, 1.2741823e-07, 0.8966
 bones/39/rotation = Quaternion(4.3538013e-09, 0.9998002, 0.01998961, -7.548282e-08)
 bones/45/rotation = Quaternion(-1.9173488e-08, 0.9998002, 0.019989625, -3.1385372e-07)
 
+[node name="Deer" parent="AnimalArmature/Skeleton3D" index="0"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
 [node name="AIAnimalComponent" type="Node3D" parent="." index="2"]
 script = ExtResource("3_raf78")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 0, 1.87, 0)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 0, 1.3277843, 0)
 shape = SubResource("CapsuleShape3D_6y4uk")
 
 [node name="MoveInterval" type="Timer" parent="." index="4"]
 wait_time = 2.0
+one_shot = true
 autostart = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5"]
 debug_enabled = true
 
 [connection signal="timeout" from="MoveInterval" to="." method="_on_move_interval_timeout"]
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]

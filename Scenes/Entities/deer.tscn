@@ -1,19 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://01dw3ve3er7y"]
+[gd_scene load_steps=6 format=3 uid="uid://01dw3ve3er7y"]
 
 [ext_resource type="PackedScene" uid="uid://bacc23vvorbkw" path="res://Assets/Raw/glTF/Deer.gltf" id="1_mpvq3"]
-[ext_resource type="Script" uid="uid://5v05jr64k235" path="res://Scripts/Components/Animal_Manager.gd" id="2_6y4uk"]
-[ext_resource type="Script" uid="uid://c3mv7ayue0ghj" path="res://Scripts/Components/ai_animal_component.gd" id="3_raf78"]
+[ext_resource type="Script" uid="uid://5v05jr64k235" path="res://Scripts/Systems/Animal_Manager.gd" id="2_6y4uk"]
+[ext_resource type="Script" uid="uid://chu3ukoi0g0p5" path="res://Scenes/Entities/Navigation_Component.gd" id="3_6y4uk"]
+[ext_resource type="Script" uid="uid://do607hm5wp1cd" path="res://Scenes/Entities/wander_ai.gd" id="4_raf78"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6y4uk"]
 radius = 1.5
 height = 3.0
 
 [node name="Deer" instance=ExtResource("1_mpvq3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("2_6y4uk")
-speed = 5.0
 
 [node name="Skeleton3D" parent="AnimalArmature" index="0"]
 bones/1/rotation = Quaternion(0.7869396, -6.344836e-07, -8.113766e-07, 0.61703)
@@ -49,8 +48,8 @@ bones/45/rotation = Quaternion(-1.9173488e-08, 0.9998002, 0.019989625, -3.138537
 [node name="Deer" parent="AnimalArmature/Skeleton3D" index="0"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="AIAnimalComponent" type="Node3D" parent="." index="2"]
-script = ExtResource("3_raf78")
+[node name="NavigationComponent" type="Node" parent="." index="2"]
+script = ExtResource("3_6y4uk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 0, 1.3277843, 0)
@@ -64,5 +63,8 @@ autostart = true
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5"]
 debug_enabled = true
 
-[connection signal="timeout" from="MoveInterval" to="." method="_on_move_interval_timeout"]
+[node name="WanderAI" type="Node" parent="." index="6"]
+script = ExtResource("4_raf78")
+
+[connection signal="timeout" from="MoveInterval" to="NavigationComponent" method="_on_move_interval_timeout"]
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]

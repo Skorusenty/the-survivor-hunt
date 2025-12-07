@@ -13,8 +13,8 @@ func _ready():
 
 func update_camera(mouse_delta):
 	var scaled_delta: Vector2 = mouse_delta * 0.2
-	yaw_owner.rotate_y(-scaled_delta.x * sensitivity * delta * 60)
-	pitch_owner.rotate_x(scaled_delta.y * sensitivity * delta * 60)
+	yaw_owner.rotate_y(-scaled_delta.x * sensitivity)
+	pitch_owner.rotate_x(-scaled_delta.y * sensitivity)
 	pitch_owner.rotation.x = clamp(pitch_owner.rotation.x, pitch_min, pitch_max)
 
 func set_delta(value):

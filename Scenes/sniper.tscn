@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjqer26nwwuhe"]
+
+[ext_resource type="PackedScene" uid="uid://dcctidq0pslb3" path="res://Assets/Raw/glTF/Sniper Rifle.glb" id="1_xcl07"]
+[ext_resource type="Script" uid="uid://bw8u5sgdhgmcj" path="res://Scenes/WeaponComponent.gd" id="2_046dc"]
+
+[node name="Root Scene" instance=ExtResource("1_xcl07")]
+script = ExtResource("2_046dc")
+
+[node name="Muzzle" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.128197, 0.19522685, 0)

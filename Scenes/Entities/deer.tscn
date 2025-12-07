@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bacc23vvorbkw" path="res://Assets/Raw/glTF/Deer.gltf" id="1_mpvq3"]
 [ext_resource type="Script" uid="uid://5v05jr64k235" path="res://Scripts/Systems/Animal_Manager.gd" id="2_6y4uk"]
-[ext_resource type="Script" uid="uid://chu3ukoi0g0p5" path="res://Scenes/Entities/Navigation_Component.gd" id="3_6y4uk"]
-[ext_resource type="Script" uid="uid://do607hm5wp1cd" path="res://Scenes/Entities/wander_ai.gd" id="4_raf78"]
+[ext_resource type="Script" uid="uid://chu3ukoi0g0p5" path="res://Scripts/Components/Navigation_Component.gd" id="3_6y4uk"]
+[ext_resource type="Script" uid="uid://do607hm5wp1cd" path="res://Scripts/Components/wander_ai.gd" id="4_raf78"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6y4uk"]
 radius = 1.5

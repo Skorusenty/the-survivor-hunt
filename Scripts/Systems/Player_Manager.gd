@@ -33,7 +33,7 @@ func _physics_process(delta):
 	yaw = camera_component.get_yaw()
 	pitch = camera_component.get_pitch()
 	velocity = movement_component.get_velocity()
-	var input_vector = -Input.get_vector("Left", "Right", "Forward", "Backward")
+	var input_vector = Input.get_vector("Left", "Right", "Forward", "Backward")
 	var world_direction = (yaw.transform.basis * Vector3(input_vector.x, 0, input_vector.y)).normalized()
 	movement_component.set_direction(world_direction)
 	movement_component.set_is_on_floor(is_on_floor())

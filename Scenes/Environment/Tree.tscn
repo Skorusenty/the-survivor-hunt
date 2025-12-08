@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://d08tdd2en1sbx"]
+
+[ext_resource type="PackedScene" uid="uid://2pxbxptj5hhl" path="res://Assets/Raw/FBX/BirchTree_1.fbx" id="1_lruhd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybhsm"]
+albedo_color = Color(0.57254905, 0.38431373, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsn5s"]
+albedo_color = Color(0.30588236, 0.7490196, 0, 1)
+
+[node name="BirchTree_1" instance=ExtResource("1_lruhd")]
+
+[node name="BirchTree_1" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ybhsm")
+surface_material_override/1 = SubResource("StandardMaterial3D_fsn5s")

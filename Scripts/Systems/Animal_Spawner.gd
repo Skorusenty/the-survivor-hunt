@@ -11,7 +11,7 @@ func _ready() -> void:
 func _on_spawner_interval_timeout() -> void:
 	_spawn_deer(5, random_position)
 
-func _spawn_deer(amount: int, random_position: Vector3):
+func _spawn_deer(amount: int, _random_position: Vector3):
 	for i in range(amount):
 		random_position = Vector3.ZERO
 		random_position.x = randf_range(-400, 380)

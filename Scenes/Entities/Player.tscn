@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqw24i2tiwj1"]
+[gd_scene load_steps=7 format=3 uid="uid://cqw24i2tiwj1"]
 
 [ext_resource type="Script" uid="uid://22k44b1x0ax3" path="res://Scripts/Systems/Player_Manager.gd" id="2_agccv"]
 [ext_resource type="PackedScene" uid="uid://cjqer26nwwuhe" path="res://Scenes/sniper.tscn" id="2_g4oe6"]
 [ext_resource type="Script" uid="uid://bc3yywmvl3rjf" path="res://Scripts/Components/Player_Movement.gd" id="2_v402d"]
+[ext_resource type="PackedScene" uid="uid://bk53ni3xcsc8e" path="res://Scenes/Bullet.tscn" id="3_86atj"]
 [ext_resource type="Script" uid="uid://dupft0ptd7ydv" path="res://Scripts/Components/camera_component.gd" id="3_agccv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v402d"]
@@ -24,6 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Sniper" parent="Head/Camera3D" instance=ExtResource("2_g4oe6")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 0.37438476, -0.2898637, -0.41006058)
+bullet_scene = ExtResource("3_86atj")
 
 [node name="MovementComponent" type="Node3D" parent="."]
 script = ExtResource("2_v402d")

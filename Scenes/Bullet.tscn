@@ -7,7 +7,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_vlxeq"]
 size = Vector3(0.1, 0.1, 0.3)
 
-[node name="Bullet" type="CharacterBody3D"]
+[node name="Bullet" type="RigidBody3D"]
 script = ExtResource("1_vlxeq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

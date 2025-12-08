@@ -8,7 +8,7 @@ extends Node3D
 var can_shoot = true
 
 func _process(_delta):
-	if Input.is_action_pressed("shoot") and can_shoot:
+	if Input.is_action_pressed("Shoot") and can_shoot:
 		shoot()
 
 func shoot():

@@ -2,8 +2,8 @@ extends Node3D
 
 @export var bullet_scene: PackedScene
 @export var fire_rate = 0.2
-@onready var camera = $Camera3D
-@onready var muzzle = $Camera3D/WeaponHolder/Muzzle  # Marker3D for spawn point
+@onready var camera = get_parent()
+@onready var muzzle = $Muzzle
 
 var can_shoot = true
 
@@ -22,7 +22,7 @@ func shoot():
 	bullet.global_position = muzzle.global_position
 	
 	# Set direction (camera forward)
-	bullet.direction = -camera.global_transform.basis.z
+	bullet.direction = camera.global_transform.basis.z
 	
 	# Optional: match muzzle rotation
 	bullet.global_rotation = muzzle.global_rotation

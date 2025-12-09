@@ -1,11 +1,12 @@
 extends RigidBody3D
 
-var speed = 50.0
+var speed = 250.0
 var direction = Vector3.FORWARD
+
 
 func _ready():
 	# Apply initial velocity
-	linear_velocity = direction * speed
+	linear_velocity = -direction * speed
 	
 	# Auto-destroy after 5 seconds
 	get_tree().create_timer(5.0).timeout.connect(queue_free)

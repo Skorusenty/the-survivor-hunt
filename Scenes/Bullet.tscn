@@ -5,13 +5,18 @@
 [sub_resource type="BoxMesh" id="BoxMesh_nr8tw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vlxeq"]
-size = Vector3(0.1, 0.1, 0.3)
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Bullet" type="RigidBody3D"]
+<<<<<<< Updated upstream
+=======
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+mass = 0.072
+>>>>>>> Stashed changes
 script = ExtResource("1_vlxeq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_nr8tw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

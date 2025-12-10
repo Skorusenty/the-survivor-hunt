@@ -1,7 +1,11 @@
 extends RigidBody3D
 
 var speed = 250.0
+<<<<<<< Updated upstream
 var direction = Vector3.FORWARD
+=======
+var direction = Vector3.BACK
+>>>>>>> Stashed changes
 
 
 func _ready():

@@ -4,9 +4,25 @@
 [ext_resource type="Script" uid="uid://bw8u5sgdhgmcj" path="res://Scenes/WeaponComponent.gd" id="2_046dc"]
 [ext_resource type="PackedScene" uid="uid://bk53ni3xcsc8e" path="res://Scenes/Bullet.tscn" id="3_dqx8g"]
 
-[node name="Root Scene" instance=ExtResource("1_xcl07")]
+[node name="Root Scene" node_paths=PackedStringArray("muzzle") instance=ExtResource("1_xcl07")]
 script = ExtResource("2_046dc")
+<<<<<<< Updated upstream
 bullet_scene = ExtResource("3_dqx8g")
 
 [node name="Muzzle" type="Node3D" parent="." index="1"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.128197, 0.19522685, 0)
+=======
+weapon_name = "Sniper"
+damage = 50.0
+fire_rate = 1.0
+bullet_speed = 250.0
+bullet_scene = ExtResource("3_dqx8g")
+use_ammo = true
+magazine_size = 5
+max_ammo = 20
+reload_time = 4.0
+muzzle = NodePath("Muzzle")
+
+[node name="Muzzle" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.128197, 0.19522685, 0)
+>>>>>>> Stashed changes

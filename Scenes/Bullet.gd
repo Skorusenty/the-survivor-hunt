@@ -2,11 +2,15 @@ extends RigidBody3D
 
 var speed = 250.0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 var direction = Vector3.FORWARD
 =======
 var direction = Vector3.BACK
 >>>>>>> Stashed changes
 
+=======
+var direction = Vector3.BACK
+>>>>>>> Stashed changes
 
 func _ready():
 	# Apply initial velocity

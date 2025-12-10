@@ -20,9 +20,12 @@ signal reload_finished()
 @export var use_projectile: bool = true  # false = hitscan
 @export var bullet_scene: PackedScene
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @export var fire_rate = 0.2
 @onready var camera = get_parent()
 @onready var muzzle = $Muzzle
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -87,16 +90,22 @@ func shoot() -> void:
 		fire_hitscan()
 	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	# Set direction (camera forward)
 	bullet.direction = camera.global_transform.basis.z
 	
 	# Optional: match muzzle rotation
 	bullet.global_rotation = muzzle.global_rotation
 =======
+=======
+>>>>>>> Stashed changes
 	# Emit signal for effects (muzzle flash, sound, etc.)
 	var shoot_pos = muzzle.global_position if muzzle else global_position
 	var shoot_dir = get_shoot_direction()
 	shot_fired.emit(shoot_pos, shoot_dir)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	
 	# Fire rate cooldown
